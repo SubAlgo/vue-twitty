@@ -8,6 +8,9 @@
 # install dependencies
 npm install
 
+# install package firebase jquery semantic-ui-css
+npm install --save firebase jquery semantic-ui-css
+
 # serve with hot reload at localhost:8080
 npm run dev
 
