@@ -31,11 +31,11 @@ npm test
 ```
 
 --------FIRE BASE------------
-1.npm install –g firebase-tools
-2.firebase login
-3.firebase init
-  [DataBase and Host]
-  [twitty-taiji]
-  [dist]
+# 1.npm install –g firebase-tools
+# 2.firebase login
+# 3.firebase init
+#  [DataBase and Host]
+#  [twitty-taiji]
+#  [dist]
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
