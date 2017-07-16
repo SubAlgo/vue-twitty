@@ -14,10 +14,13 @@ export default {
     }
   },
   created () {
-    this.id = +this.$route.params.id
+    this.reload()
   },
   watch: {
-    $route () {
+    $route: 'reload'
+  },
+  methods: {
+    reload () {
       this.id = +this.$route.params.id
     }
   }
