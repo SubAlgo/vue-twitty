@@ -20,10 +20,13 @@ const router = new VueRouter({
   ]
 })
 
+/*Profile
+ถ้ายังไม่ Login หน้าเพจจะถูก redirect ไปที่หน้าเพจ SignIn แต่ถ้า Login แล้วก็จะแสดงหน้าได้
+และแก้ปัญหาเมื่อกด reload หน้าใหม่
+*/
 router.beforeEach((to, from, next) => {
   if (to.matched.some((x) => x.meta.requiresAuth)) { //ถ้า to.matched มีบางอันที่ตัว meta มี requiresAuth
-    const cancal = firebase.auth().onAuthStateChanged((user) => {
-      cancel()
+    const cancal = firebase.auth().onAuthStateChanged((user) => {   //แก้ปัญหาเวลากด Reload หน้าเพจ เพื่อไม่ให้ถูก redirect ไปLogin อีก
       if (user) {
         next()
         return
