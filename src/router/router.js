@@ -21,14 +21,16 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to)
   if (to.matched.some((x) => x.meta.requiresAuth)) { //ถ้า to.matched มีบางอันที่ตัว meta มี requiresAuth
-    if(firebase.auth().currentUser) {
-      next()
+    const cancal = firebase.auth().onAuthStateChanged((user) => {
+      cancel()
+      if (user) {
+        next()
+        return
+      }
+      next ({path: '/signin', query: { redirect: to.fullPath}})
+    })
       return
-    }
-    next({ path: '/signin', query: { redirect: to.fullPath}})
-    return
   }
   next()
 })
