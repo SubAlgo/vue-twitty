@@ -4,7 +4,7 @@
 
 
     <div class="right menu">
-      <router-link to='/profile' class="item" active-class="active" exact>Profile</router-link>
+      <router-link v-if="currentUser" to='/profile' class="item" active-class="active" exact>Profile</router-link>
       <router-link v-if="!currentUser" to='/signin' class="header item" active-class="active" exact>Sing in</router-link>
       <div v-else @click="signOut" class="link item">Sing Out</div>
     </div>
